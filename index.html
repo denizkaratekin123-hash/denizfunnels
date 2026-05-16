@@ -2395,14 +2395,7 @@
       margin-top: var(--space-2xl);
       padding: 2px;
       border-radius: calc(var(--radius-xl) + 2px);
-      background: linear-gradient(135deg, var(--color-cyan), var(--color-blue), oklch(55% 0.2 280), var(--color-cyan));
-      background-size: 300% 300%;
-      animation: borderGlow 4s ease-in-out infinite;
-    }
-
-    @keyframes borderGlow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      background: linear-gradient(135deg, var(--color-cyan), var(--color-blue), oklch(55% 0.2 280));
     }
 
     .cta-card {
@@ -2414,22 +2407,12 @@
       min-height: 380px;
     }
 
-    /* Deep saturated blue background with depth */
+    /* Deep saturated blue background */
     .cta-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        /* Top-left bright glow */
-        radial-gradient(ellipse 60% 50% at 15% 10%, oklch(65% 0.2 210 / 0.6) 0%, transparent 50%),
-        /* Top-right secondary glow */
-        radial-gradient(ellipse 50% 40% at 85% 15%, oklch(60% 0.18 230 / 0.5) 0%, transparent 45%),
-        /* Center depth glow */
-        radial-gradient(ellipse 80% 60% at 50% 60%, oklch(50% 0.22 220 / 0.5) 0%, transparent 60%),
-        /* Bottom-left ambient */
-        radial-gradient(ellipse 40% 30% at 20% 90%, oklch(55% 0.15 250 / 0.4) 0%, transparent 50%),
-        /* Base saturated blue */
-        linear-gradient(160deg, oklch(22% 0.08 220) 0%, oklch(15% 0.1 230) 40%, oklch(18% 0.12 210) 100%);
+      background: linear-gradient(160deg, oklch(22% 0.08 220) 0%, oklch(15% 0.1 230) 40%, oklch(18% 0.12 210) 100%);
       z-index: 0;
     }
 
@@ -2437,37 +2420,14 @@
     .cta-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        135deg,
-        oklch(55% 0.18 210 / 0.25) 0%,
-        oklch(50% 0.15 230 / 0.15) 50%,
-        oklch(45% 0.12 250 / 0.2) 100%
-      );
+      background: radial-gradient(ellipse 70% 50% at 30% 20%, oklch(60% 0.18 210 / 0.4) 0%, transparent 60%);
       z-index: 1;
       pointer-events: none;
     }
 
-    /* Grid texture for depth */
+    /* Grid texture hidden for performance */
     .cta-card-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(oklch(100% 0 0 / 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, oklch(100% 0 0 / 0.05) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    /* Subtle noise texture */
-    .cta-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      opacity: 0.05;
-      z-index: 3;
-      pointer-events: none;
+      display: none;
     }
 
     .cta-card-content {
@@ -3050,7 +3010,7 @@
       }
 
       .step-indicators {
-        gap: 4px;
+        display: none;
       }
 
       .step-1-section {
@@ -3086,7 +3046,7 @@
       }
 
       .video-center-overlay {
-        max-width: 90%;
+        display: none;
       }
 
       .video-center-text {
@@ -3299,11 +3259,8 @@
       <div class="headline-block scroll-reveal">
         <span class="overheadline">Agency Owners & Coaches</span>
         <h1 class="headline">
-          Get a <span class="highlight">$100,000 AI Powered Sales Funnel</span> Plugged Into Your Business
+          Get a <span class="highlight">$100,000 AI Powered Sales Funnel</span> Plugged Into Your Business, Guaranteed to Outperform Your Current Sales System or We Keep Working Until It Does.
         </h1>
-        <p class="subheadline">
-          <span class="guarantee-emphasis">Guaranteed to outperform your current sales system</span> or we keep working until it does.
-        </p>
         <a href="#calendar" class="cta-button">
           Book a Free Consultation
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3462,7 +3419,7 @@
           </div>
           <!-- Video 4: 300% (16:9 video - needs cover) -->
           <div class="testimonial-video-card" data-vimeo-id="1192709358" data-cover="true">
-            <div class="testimonial-video-thumbnail" style="background-image: url('Assets/thumnail300%.png')"></div>
+            <div class="testimonial-video-thumbnail" style="background-image: url('Assets/thumnail300.png')"></div>
             <div class="testimonial-video-overlay">
               <div class="testimonial-video-stars">
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -3549,7 +3506,7 @@
             <div class="testimonial-video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
           </div>
           <div class="testimonial-video-card" data-vimeo-id="1192709358" data-cover="true">
-            <div class="testimonial-video-thumbnail" style="background-image: url('Assets/thumnail300%.png')"></div>
+            <div class="testimonial-video-thumbnail" style="background-image: url('Assets/thumnail300.png')"></div>
             <div class="testimonial-video-overlay">
               <div class="testimonial-video-stars">
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
